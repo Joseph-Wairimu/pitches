@@ -9,3 +9,13 @@ def index():
     
     
     return render_template('index.html')
+
+@main.route('/profile')
+def profile():
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+    
+    
+    return render_template('profile.html')    
