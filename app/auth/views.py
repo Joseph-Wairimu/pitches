@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect,url_for,abort
+from flask import render_templat,redirect,url_for
 from . import auth
 @auth.route('/login')
 def login():
