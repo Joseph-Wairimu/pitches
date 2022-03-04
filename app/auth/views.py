@@ -1,5 +1,5 @@
 from flask import render_template,request,redirect,url_for,abort
-
+from . import auth
 @auth.route('/login')
 def login():
 
@@ -28,4 +28,4 @@ def logout():
     '''
     
     
-    return redirect(url_for'main.index')            
+    return redirect(url_for("main.index"))        
