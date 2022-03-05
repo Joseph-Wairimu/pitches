@@ -1,7 +1,7 @@
-from flask import render_template,redirect,url_for
+from flask import render_template,redirect,url_for, request, flash
 from . import auth
-from .models import User
-from . import db
+from ..models import User
+from .. import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -38,7 +38,7 @@ def signup_post():
         flash('Email address already exists.')
         return redirect(url_for('auth.signup'))
 
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = User(email=email, username=username, password=generate_password_hash(password, method='sha256'))
 
     db.session.add(new_user)
     db.session.commit()
