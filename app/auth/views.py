@@ -2,6 +2,8 @@ from flask import render_template,redirect,url_for
 from . import auth
 from .models import User
 from . import db
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 @auth.route('/login')
 def login():
@@ -31,8 +33,17 @@ def signup_post():
     password = request.form.get('password')  
     
     user = User.query.filter_by(email=email).first()
-     
 
+    if user:
+        flash('Email address already exists.')
+        return redirect(url_for('auth.signup'))
+
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect(url_for('auth.login'))
 
 @auth.route('/logout')
 def logout():
