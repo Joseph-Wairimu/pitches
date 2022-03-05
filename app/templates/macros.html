@@ -1,0 +1,27 @@
+{% macro display_post(posts)%}
+
+
+
+{% for post in posts%}
+<div class="col-md-3">
+    <div class="card  mb-3" id="card1" style"">
+        <div class="card-header">{{post.title}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{post.category}}</h5>
+
+            <p class="card-text">{{post.added_date.strftime('%b %d, %Y')}}</p>
+            <p class="card-text">{{post.post}}</p>
+           
+        </div>
+    </div>
+</div>
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endmacro %}
