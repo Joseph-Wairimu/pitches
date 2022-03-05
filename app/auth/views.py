@@ -1,4 +1,4 @@
-from flask import render_templat,redirect,url_for
+from flask import render_template,redirect,url_for
 from . import auth
 @auth.route('/login')
 def login():
@@ -8,7 +8,7 @@ def login():
     '''
     
     
-    return render_template('login.html')    
+    return render_template('auth/login.html')    
 
 @auth.route('/signup')
 def signup():
@@ -18,7 +18,7 @@ def signup():
     '''
     
     
-    return render_template('signup.html')        
+    return render_template('auth/signup.html')        
 
 @auth.route('/logout')
 def logout():
