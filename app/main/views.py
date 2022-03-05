@@ -87,3 +87,22 @@ def comment(post_id):
         flash('Your comment has been created successfully!')
         return redirect(url_for('.comments', post_id=post_id))
     return render_template('comments.html', form=form, post=post, comments=comments, user=user)
+
+@main.route('/new_post', methods=['GET', 'POST'])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        post = form.post.data
+        category = form.category.data
+        user_id = current_user._get_current_object().id
+        # post_obj = Post(post=post, title=title, category=category, user_id=user_id)
+        new_post=Post(title=title,post=post,category=category)
+        new_post.save()
+        db.session.add(new_post)
+        db.session.commit()
+        # post_obj.save()
+        flash('Your pitch has been created successfully!')
+        return redirect(url_for('main.index',uname=current_user.username))
+    return render_template('new_pitch.html', form=form ,title='Pitch Perfect')

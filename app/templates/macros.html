@@ -11,7 +11,7 @@
 
             <p class="card-text">{{post.added_date.strftime('%b %d, %Y')}}</p>
             <p class="card-text">{{post.post}}</p>
-           
+            <a href="{{url_for('main.comment',post_id=post.id)}}" class="btn btn-secondary">Comments</a>
         </div>
     </div>
 </div>
