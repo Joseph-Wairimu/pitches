@@ -30,7 +30,7 @@ def login_post():
 
     login_user(user, remember=remember)
 
-    return redirect(url_for('main.profile'))
+    return redirect(url_for('main.index'))
 
 @auth.route('/signup')
 def signup():
