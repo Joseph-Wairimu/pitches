@@ -7,6 +7,7 @@ class User(UserMixin,db.Model):
     email=db.Column(db.String(100),unique = True)
     password =db.Column(db.String(100))
     username = db.Column(db.String(1000))
-
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
     def __repr__(self):
         return f'User {self.username}'
