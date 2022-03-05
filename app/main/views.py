@@ -6,9 +6,21 @@ from ..models import  User ,Post
 from .. import db,photos
 @main.route('/')
 def index():
-    return render_template('index.html')  
+    
+    pickup_lines= Post.query.filter_by(category='pickup_lines').all()
+    interview_pitch = Post.query.filter_by(category='interview_pitch').all()
+    product_pitch= Post.query.filter_by(category='product_pitch').all()
+    promotion_pitch = Post.query.filter_by(category='promotion_pitch').all()
+    Humour_pitch = Post.query.filter_by(category='Humour_pitch').all()
+    posts = Post.query.order_by(Post.added_date.desc()).all()
+    return render_template('index.html',interview_pitch=interview_pitch, pickup_lines=pickup_lines,  product_pitch= product_pitch,promotion_pitch=promotion_pitch,Humour_pitch=Humour_pitch, posts=posts)
 
-
+@main.route('/posts')
+@login_required
+def posts():
+    posts = Post.query.all()
+    user = current_user
+    return render_template('pitches.html', posts=posts, user=user)
 
 @main.route('/user/<uname>')
 @login_required
