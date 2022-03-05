@@ -7,6 +7,7 @@ def index():
     return render_template('index.html')
 
 @main.route('/profile')
+@login_required
 def profile():
 
     '''
@@ -14,4 +15,4 @@ def profile():
     '''
     
     
-    return render_template('profile/profile.html')    
+    return render_template('profile/profile.html',username=current_user.username)    
