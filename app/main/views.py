@@ -2,21 +2,11 @@ from flask import render_template,request,redirect,url_for,abort
 from .forms import UpdateProfile
 from flask_login import login_required, current_user
 from . import main
-from flask.helpers import flash
+from ..models import  User
 
 @main.route('/')
 def index():
-    return render_template('index.html')
-
-# @main.route('/profile')
-# def profile():
-
-#     '''
-#     View root page function that returns the index page and its data
-#     '''
-    
-    
-#     return render_template('profile/profile.html')    
+    return render_template('index.html')  
 
 
 
@@ -31,7 +21,7 @@ def profile(uname):
     
     return render_template('profile/profile.html',user = user)    
 
-@main.route('/user/<uname>/update',methods = ['POST','GET'])
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
 def update_profile(uname):
     user = User.query.filter_by(username = uname).first()
