@@ -11,10 +11,11 @@ class PostForm(FlaskForm):
   title = StringField(' title:',validators=[DataRequired()]) 
   post = StringField(' post:',validators=[DataRequired()]) 
   username= StringField(' username:',validators=[DataRequired()])
-  category = SelectField("Choose your desired category:",choices=[('Business','Business'),('Fashion','Fashion'),('Education','Education'),('Humour','Humour'),('Sports','Sports')])
+  category = SelectField("Choose your desired category:",choices=[('interview_pitch','interview_pitch'),('pickup_lines','pickup_lines'),('product_pitch','product_pitch'),('promotion_pitch','promotion_pitch'),('Humour_pitch','Humour_pitch')])
 
   submit = SubmitField('Submit')
-
+                                                                    
+  
 
 class CommentForm(FlaskForm):
   comment = TextAreaField('Add a Comment:',validators=[DataRequired()])

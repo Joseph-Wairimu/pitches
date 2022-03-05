@@ -1,9 +1,10 @@
 from flask import render_template,request,redirect,url_for,abort
-from .forms import UpdateProfile, CommentForm
+from .forms import UpdateProfile, CommentForm, PostForm
 from flask_login import login_required, current_user
 from . import main
 from ..models import  User ,Post, Comment
 from .. import db,photos
+from flask.helpers import flash
 @main.route('/')
 def index():
     
@@ -105,4 +106,4 @@ def new_post():
         # post_obj.save()
         flash('Your pitch has been created successfully!')
         return redirect(url_for('main.index',uname=current_user.username))
-    return render_template('new_pitch.html', form=form ,title='Pitch Perfect')
+    return render_template('recent_pitch.html', form=form ,title='Pitch Perfect')
