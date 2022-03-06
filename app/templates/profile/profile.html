@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% import "macros.html" as macro %}
 {% block content %}
 <div class="container">
 <div class="row">
@@ -35,5 +35,8 @@
       {% endif %}
   </div>
 </div>
+</div>
+<div class=" container row">
+  {{macro.display_post(posts)}}
 </div>
 {% endblock %}
