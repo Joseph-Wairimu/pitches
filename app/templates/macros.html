@@ -13,6 +13,8 @@
 
             <p class="card-text">{{post.added_date.strftime('%b %d, %Y')}}</p>
             <p class="card-text" style="font-family: 'IM Fell English', serif;">{{post.post}}</p>
+
+            
             <a href="{{url_for('main.comment',post_id=post.id)}}" class="btn btn-secondary">Leave a Comment..</a>
         </div>
     </div>
