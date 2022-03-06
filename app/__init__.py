@@ -24,6 +24,7 @@ def create_app(config_name):
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
     config_options[config_name].init_app(app)
+    app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql+psycopg2://moringa:Access@localhost/pitch'
 
     bootstrap.init_app(app)
     db.init_app(app)
