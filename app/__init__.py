@@ -23,7 +23,8 @@ def create_app(config_name):
     app.config.from_object(config_options[config_name])
     # app.config['SECRET_KEY']='thisismykey'
     # app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///db.sqlite3'
-    
+    app.config["SQLALCHEMY_DATABASE_URI"] = ("postgresql://postgres:Access@localhost/pitch")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)
