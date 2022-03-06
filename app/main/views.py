@@ -86,7 +86,7 @@ def comment(post_id):
         new_comments = [new_comment]
         print(new_comments)
         flash('Your comment has been created successfully!')
-        return redirect(url_for('.comments', post_id=post_id))
+        return redirect(url_for('.comment', post_id=post_id))
     return render_template('comments.html', form=form, post=post, comments=comments, user=user)
 
 @main.route('/new_post', methods=['GET', 'POST'])

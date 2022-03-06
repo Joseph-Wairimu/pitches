@@ -19,4 +19,5 @@ class PostForm(FlaskForm):
 
 class CommentForm(FlaskForm):
   comment = TextAreaField('Add a Comment:',validators=[DataRequired()])
-  submit = SubmitField('Submit') 
+  username= StringField(' Name:',validators=[DataRequired()])
+  submit = SubmitField(' Submit') 
