@@ -20,8 +20,8 @@ class Config:
     def init_app(app):
         pass
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    pass
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:Access@localhost/pitchdata'
+    print(SQLALCHEMY_DATABASE_URI)
     
 
 class DevConfig(Config):
