@@ -20,8 +20,8 @@ class Config:
     def init_app(app):
         pass
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI =' postgresql://tspvpabjirokwt:e470e82d5015246cadcd82ba3ef7f5147054c0feaaaf94a94024a7cccc49f616@ec2-54-157-15-228.compute-1.amazonaws.com:5432/db66ktjucrjr8t'
-    print(SQLALCHEMY_DATABASE_URI)
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    
     
 
 class DevConfig(Config):
